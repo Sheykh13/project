@@ -60,8 +60,8 @@ def signup_page(request):
         form=UserCreationForm(request.POST)
         if form.is_valid():
             User=form.save()
-            messages.success(request,"you are now logout")
-            return render(request,'pages/home.html')
+            messages.success(request,"you are new user")
+            return render(request,'pages/login.html')
     else:
 
         form=UserCreationForm()    
