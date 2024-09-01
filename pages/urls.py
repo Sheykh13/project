@@ -7,6 +7,11 @@ path('about/',views.about_page,name='about'),
 path('login/',views.login_page,name='login'),
 path('logout/',views.logout_page,name='logout'),
 path("signup/", views.signup_page, name='signup'),
+path('catgory/<str:cat>',views.catgory_page,name='catgory'),
+path("cart1/",views.cart_page,name="cart1"),
+#path("add/",views.carts_add,name="cart_add"),
+#path("delete/",views.carts_delete,name="cart_delete"),
+#path("update/",views.carts_update,name="cart_update")
 
 
 ] 

@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from .models import merch
+from .models import merch,catgory
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -67,4 +67,25 @@ def signup_page(request):
         form=UserCreationForm()    
     context={'form':form}
     return render(request,'pages/signup.html',context)
+def catgory_page(request,cat):
+    cat=cat.replace("-"," ")
+    try:
+        catgory=catgory.objects.get(name=cat)
+        merch=merch.objects.filter(catgory=catgory)
+        return render(request,'catgory.html',{'merch':merch,'catgory':catgory})
+    
+    except:
+        messages.success(request,("you are now in home"))
+        return redirect('pages:home')
 
+
+
+        
+def cart_page(request):
+    return render(request,"pages/cart1.html")
+def carts_add(request):
+    pass
+def carts_delete(request):
+    pass
+def carts_update(request):
+    pass
